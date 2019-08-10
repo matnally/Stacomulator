@@ -1,0 +1,4 @@
+
+function setWrite(intComedian) {
+
+} //function

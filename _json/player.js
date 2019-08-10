@@ -1,0 +1,5 @@
+
+var JSONplayer = [{
+  "name"    : ""
+  ,"set"    : []
+}];

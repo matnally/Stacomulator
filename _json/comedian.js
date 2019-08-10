@@ -1,0 +1,5 @@
+
+var JSONcomedian = [{
+  "name"    : ""
+  ,"set"    : []
+}];
