@@ -1,15 +1,63 @@
-Comedilator - A Comedian Simulator
+
+README - A Comedian Simulator
 ==============================================
 
-audiences TOLERANCE for NOT their GENRE adds to less hecklers / better gig is GENRE of SET different?
+THINGS TO CALC......
+
+GIG
+=============
+A low raaport between the COMEDIAN and AUDIENCE creates HECKLERS.
+
+  - hecklers = (SET confidence, COMEDIAN putdowns, same genre)
+  - audienceRapport  = (AUDIENCE vs COMEDIAN; same genre, SET confidence)
+
+The OUTCOME of the GIG is determined by ???
+
+  - gigOutcome =
 
 
 
-Start Simple!
-- START GAME
-- CHOOSE FROM MENU
-    Write set
-    Gig
+SET
+=============
+quality
+confidence - no of times used
+
+COMEDIAN
+=============
+
+AUDIENCE
+=============
+
+
+
+
+
+
+
+   COMEDIAN vs AUDIENCE
+=============================
+reputation  VS respect???
+happiness   VS
+health      VS
+following   VS
+putdowns    VS
+
+GIG
+=============================
+no of hecklers = putdowns | confidence | quality??????
+
+
+       SET vs AUDIENCE
+=============================
+confidence VS trust?
+quality    VS
+
+
+  COMEDIAN vs AUDIENCE
+=============================
+    health VS good gig gigOutcome?
+  putdowns VS heckling
+experience VS
 
 
 
@@ -17,21 +65,12 @@ Start Simple!
 
 COMEDIAN
 =====
-name
-happiness
+health & happiness
 reputation
 following - people who like the type of material you are writing
-reputation
-quality of act (longer you write for and more gigs increases value)
-audience type (the more the setType used the more audience type gained)
-audience rapport
+audience audienceRapport
 putdowns (deal with hecklers)
-Observation
-Experimentation
-plagiarism
-uptodate????
-communication
-confidence (new material lowers it, gigging improves it if went well)
+confidence (new material lowers it, gigging improves it if went well, new material lowers it, gigging improves it if went well)
 accessible (appeals to more audience types, new material works better)
 fan base
 broadness
@@ -40,75 +79,18 @@ health
 money
 stalkers - more rep more stalkers, affect health / happiness
 
-
 SET
 =====
-name
-comedian
-typeATT
 funATT??? quality (from player's rep and no of SET created?)
+quality (longer you write for and more gigs increases value)
 dateCreated (longer the set the less audience?)
 
-
-typeATT
-=====================
-Alternative
-Anecdotal
-Anti-humor
-Dark/Morbid/Shock
-Blue
-Character
-Cringe
-Deadpan
-Heritage
-Improvisational
-Insult
-Musical
-Observational
-one-liners
-Physical
-Prop
-Shock
-Sketch
-Surreal
-Topical / Satire /Satirical
-Word play
-Droll
-highbrow
-
-
-AUDIENCE
-=====
-typeATT (right wing, mainstream, slapstick)
-chance of getting this auduence (mainstream audience is more but get less rep but more followers?)
-hecklers (offset by putdowns & quality)
-
+EVENTS
+======
+Edinburgh every year!
+plagiarism
+festival
 
 GIG
 =====
-comedian
-set
-audience
 funATT??? quality (increases comedians REP and FOLLOWING?)
-
-
-other comedians (like bands ;) )
-mainstream is avg of ATT
-
-
-Stand up comedian simulator
-======================================
-
-Write set material (practice) - less happy when longer not written anything
-
-gig
- - smaller clubs = more hecklers
- - festival
- : choose what material to use
- : choose to be high (more reputation, less quality)
-
-Buy drink / drugs (gifts) - help writing and gigging but affects health
-
-Publicty (increases reputation) - flyers, tv gameshow, stunt
-
-Current Career Measurment: mainstream (average rep and following) / underground

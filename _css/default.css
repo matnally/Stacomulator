@@ -10,17 +10,26 @@ body {
 }
 /* END CORE ELEMENTS */
 
+
 /* START MAIN ELEMENTS */
 img {
 }
 input {
-  width: 75px;
+  /* width: 75px; */
 }
 button {
   font-weight: bold;
   padding: 2px;
 }
 /* END MAIN ELEMENTS */
+
+/* START TEXT */
+.textRight {
+  text-align: right;
+  font-weight: bold;
+}
+/* END TEXT */
+
 
 /* START TABLES */
 .divTable {
@@ -31,8 +40,7 @@ button {
   display: table-row;
 }
 .divCell {
-  /* border: 1px #CCC solid; */
   display: table-cell;
   vertical-align: top;
-  /* padding: 2px; */
 }
+/* END TABLES */
