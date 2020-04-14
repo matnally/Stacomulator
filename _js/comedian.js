@@ -129,3 +129,9 @@ function comedianCalcNoOfGigs(intComedian) {
   } //for
   return intNoOfGigs;
 } //function
+
+
+
+//////////////////////////
+//// SUPPORTING LOGIC ////
+//////////////////////////

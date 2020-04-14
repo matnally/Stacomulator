@@ -108,7 +108,7 @@ function guiGameMenuStartcomedianCreateCustom() {
 } //function
 //SET
 function guiGameMenuMainMenuSet() { //clicked on WRITE SET from menu
-//  updateElement("divSetComedian", guiComboBoxCreateSetComedian(JSONplayer[0].comedian, "selComedian"));
+  // updateElement("divSetComedian", guiComboBoxCreateSetComedian(JSONplayer[0].comedian, "selComedian"));
   document.getElementById("selComedian").addEventListener("change",function(event){
     updateElement("divComedianDetailsTemplate", guiCreateComedianHTML(this.value));
   }, {passive: true});
@@ -120,30 +120,37 @@ reDrawreListen(document.getElementById("selComedian").value);
 //GIG
 function guiGameMenuMainMenuGig() { //re-create and re-listener DOM elements
   //TODO: clean up
-  //COMEDIAN
-  updateElement("divGigComedian", guiComboBoxCreateSetComedian(JSONplayer[0].comedian, "selGigComedian"));
-  document.getElementById("selGigComedian").addEventListener("change",function(event){
-    guiCreateUpdateShowSet(JSONcomedian[this.value].set[0]); //init display starting comedian
+  let boolHasSet = true;
+  for (let c in JSONplayer[0].comedian) { //check if player's comedians have no sets
+    if (JSONcomedian[JSONplayer[0].comedian[c]].set.length <= 0) boolHasSet = false;
+  } //for
+  if (boolHasSet == true) {
+    //COMEDIAN
+    updateElement("divGigComedian", guiComboBoxCreateSetComedian(JSONplayer[0].comedian, "selGigComedian"));
+    document.getElementById("selGigComedian").addEventListener("change",function(event){
+      guiCreateUpdateShowSet(JSONcomedian[this.value].set[0]); //init display starting comedian
+      updateElement("divSetComedianTemplate", guiCreateComedianHTML(document.getElementById("selGigComedian").value) );
+    }, {passive: true});
     updateElement("divSetComedianTemplate", guiCreateComedianHTML(document.getElementById("selGigComedian").value) );
-  }, {passive: true});
-  updateElement("divSetComedianTemplate", guiCreateComedianHTML(document.getElementById("selGigComedian").value) );
-  //TODO: what if a comedian has no sets written?
-  //SET
-  updateElement("divGigSetName", guiComboBoxCreateSetComedianSet(document.getElementById("selGigComedian").value, "selGigSet", "name"));
-  document.getElementById("selGigSet").addEventListener("change",function(event){
-    updateElement("divGigSetGenre", JSONgenre[JSONset[this.value].genre].name);
-  }, {passive: true});
-  updateElement("divSetDetailsTemplate", guiCreateSetHTML(document.getElementById("selGigSet").value) );
-  //VENUE
-  updateElement("divGigVenue", guiComboBoxCreate(JSONvenue, "selGigVenue"));
-  document.getElementById("selGigVenue").addEventListener("change",function(event){
-    updateElement("divVenueDetailsTemplate", guiCreateVenueHTML(this.value));
-  }, {passive: true});
-  updateElement("divVenueDetailsTemplate", guiCreateVenueHTML(document.getElementById("selGigVenue").value));
-  //GUI
-  guiCreateUpdateShowSet(JSONcomedian[document.getElementById("selGigComedian").value].set[0]); //init display starting comedian
-  guiCreateUpdateShowSet(document.getElementById("selGigSet").value); //init display starting comedian
-  navShow("#secGig")
+    //SET
+    updateElement("divGigSetName", guiComboBoxCreateSetComedianSet(document.getElementById("selGigComedian").value, "selGigSet", "name"));
+    document.getElementById("selGigSet").addEventListener("change",function(event){
+      updateElement("divGigSetGenre", JSONgenre[JSONset[this.value].genre].name);
+    }, {passive: true});
+    updateElement("divSetDetailsTemplate", guiCreateSetHTML(document.getElementById("selGigSet").value) );
+    //VENUE
+    updateElement("divGigVenue", guiComboBoxCreate(JSONvenue, "selGigVenue"));
+    document.getElementById("selGigVenue").addEventListener("change",function(event){
+      updateElement("divVenueDetailsTemplate", guiCreateVenueHTML(this.value));
+    }, {passive: true});
+    updateElement("divVenueDetailsTemplate", guiCreateVenueHTML(document.getElementById("selGigVenue").value));
+    //GUI
+    guiCreateUpdateShowSet(JSONcomedian[document.getElementById("selGigComedian").value].set[0]); //init display starting comedian
+    guiCreateUpdateShowSet(document.getElementById("selGigSet").value); //init display starting comedian
+    navShow("#secGig")
+  } else {
+    logIt("ERROR", "One of your comedians has not written a set yet");
+  } //if
 } //function
 //PUBLICITY
 function guiGameMenuMainMenuPublicity() {
