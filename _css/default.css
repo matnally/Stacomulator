@@ -39,7 +39,7 @@ button {
 .divRow {
   display: table-row;
 }
-.divCell {
+.divCell {  
   display: table-cell;
   vertical-align: top;
 }

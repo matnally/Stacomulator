@@ -1,9 +1,7 @@
 
-//TODO: better!
-
 function getRandomName() {
   let strName = "";
-  strName = JSONname[generateRandomNumber(0, JSONname.length-1)] + ' ' + JSONname[generateRandomNumber(0, JSONname.length-1)];
+  strName = JSONname[generateRandomNumber(0, JSONname.length-1)] + ' ' + JSONname[generateRandomNumber(0, JSONname.length-1)]; //-1 because index
   return strName;
 } //function
 

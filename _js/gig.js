@@ -22,7 +22,6 @@ var JSONgigCategory = [
 // END OF JSON //
 
 
-
 function gigCreate(intComedian, intSet, intVenue, intAudience, intCategory) {
   let intHecklers=0,intAudienceRapport=0,intGigOutcome=0;
   intHecklers = gigCalcHecklers(intComedian, intSet, intVenue, intAudience, intCategory);
@@ -36,26 +35,25 @@ function gigCreate(intComedian, intSet, intVenue, intAudience, intCategory) {
                 ,"turn"            : JSONconfig[0].turn
                 ,"hecklers"        : intHecklers
   }); //push
-  comedianUpdate(intComedian, 0); //0=GIG 1=SET
+  comedianUpdateSelect(intComedian, 0); //0=GIG 1=SET
   logIt("GIG", JSONcomedian[intComedian].name
-    + " performed " + JSONset[JSONset.length-1].name
+    + " performed " + JSONset[JSONset.length-1].name  //-1 because index
     + " at " + JSONvenue[intVenue].name
     + " to " + JSONaudience[intAudience].name
     + " it was " + JSONgigCategory[intCategory].name
   ); //logIt
 } //function
 
-function gig(intCategory) { //normal gig
+function gig(intCategory) {
   gameTurnStart();
   let intComedian=0,intSet=0,intVenue=0,intAudience=0;
-  intComedian = document.getElementById("selGigComedian").value;
-  intSet = document.getElementById("selGigSet").value;
-  intVenue = document.getElementById("selGigVenue").value;
+  intComedian = document.getElementById("selComedianGig").value;
+  intSet = document.getElementById("selSet").value;
+  intVenue = document.getElementById("selVenue").value;
   intAudience = audienceChoose(intVenue);
   gigCreate(intComedian, intSet, intVenue, intAudience, intCategory); //0=Charity,1=Corporate,2=Normal,3=Warm up
   gameTurnEnd();
 } //function
-
 
 
 //////////////////////
@@ -139,7 +137,6 @@ function gigCalcGigOutcome(intComedian, intSet, intVenue, intAudience, intCatego
   intGigOutcome = 99; //TODO: calc
   return intGigOutcome;
 } //function
-
 
 
 //////////////////////////

@@ -57,30 +57,3 @@ function logIt(strType, strLog) {
   } //switch
   if (!strText=="") console.log("[" + strType + "]" + " - " + "[" + strText+ "]");
 } //function
-
-
-// ADMIN
-function adminGameInitChosen() {
-  let intComediansToAdd = generateRandomNumber(1, JSONcomedian.length);
-  let intComedian = 0;
-  let intSetsToAdd = generateRandomNumber(2, 10);
-  for (let i=1;i<=intComediansToAdd;i++) {
-    do {
-      intComedian = generateRandomNumber(0, JSONcomedian.length-1); //-1 because index
-    } while (inArray(JSONplayer[0].comedian, intComedian));
-    comedianAdd(0, intComedian);
-  } //for
-  logIt("GAME", "adminGameInitChosen");
-  gameStart();
-  // gameTurnEnd();
-} //function
-function adminGameInitCreated() {
-  let intComediansToAdd = generateRandomNumber(1, JSONcomedian.length);
-  let intComedian = 0;
-  let intSetsToAdd = generateRandomNumber(2, 10);
-  for (let i=1;i<=intComediansToAdd;i++) {
-    comedianCreateCustom(getRandomName(), "strDesc"+i, "image.png");
-  } //for
-  logIt("GAME", "adminGameInitCreated");
-  gameStart();
-} //function

@@ -71,7 +71,6 @@ function audienceCreateJSONgenre() { //returns array of unique genres
 // END OF JSON //
 
 
-
 //////////////////////////
 //// SUPPORTING LOGIC ////
 //////////////////////////

@@ -4,27 +4,31 @@
 var JSONset = [];
 
 function set() {
-  gameTurnStart();
-  setCreate(document.getElementById("selComedian").value,document.getElementById("selGenre").value,document.getElementById("inputSetName").value);
-  gameTurnEnd();
+  if (document.getElementById("inputSetName").value != "") {
+    gameTurnStart();
+    setCreate(document.getElementById("selComedianSet").value,document.getElementById("selGenre").value,document.getElementById("inputSetName").value);
+    gameTurnEnd();
+  } else {
+    alert("Enter a name");
+    document.getElementById("inputSetName").focus();
+  } //if
 } //function
 
 function setCreate(intComedian, intGenre, strName) {
   let intSet = 0;
   JSONset.push({"name"         : strName
-                ,"description" : "duuno" + JSONset.length
+                ,"description" : "Set " + JSONset.length + " description"
                 ,"genre"       : intGenre
                 ,"turn"        : JSONconfig[0].turn
                 ,"quality"     : setCalcQuality(intComedian, intGenre) // %
   }); //push
-  intSet = JSONset.length-1; //-1 as passing ID
+  intSet = JSONset.length-1;  //-1 because index
   JSONcomedian[intComedian].set.push(intSet);
-  comedianUpdate(intComedian, 1); //0=GIG 1=SET
-  logIt("SET", JSONcomedian[intComedian].name + " wrote the set " + JSONset[intSet].name + " with " + JSONset[intSet].quality + "% quality");
+  comedianUpdateSelect(intComedian, 1); //0=GIG 1=SET
+  logIt("SET", JSONcomedian[intComedian].name + " wrote the set " + JSONset[intSet].name + " with " + JSONset[intSet].quality + "&amp; quality");
 } //function
 
 // END OF JSON //
-
 
 
 //////////////////////

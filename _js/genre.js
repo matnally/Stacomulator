@@ -80,7 +80,6 @@ function genreCreateJSON() { //add additional common / non unique / random prope
 // END OF JSON //
 
 
-
 //////////////////////////
 //// SUPPORTING LOGIC ////
 //////////////////////////

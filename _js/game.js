@@ -20,7 +20,6 @@ var JSONaction = [
 // END OF JSON //
 
 
-
 //////////
 // GAME //
 //////////
@@ -48,8 +47,8 @@ function gameSetConfig() {
 function gameStart() {
   playerCreateJSONAllocateComedians(); //allocates remaining comedians to players
   logIt("GAME", "Comedians allocated to Players");
-  JSONconfig[0].turn = 1; //inti
-  navShow("#secGameMenuMainManu");
+  JSONconfig[0].turn = 1; //init
+  navShow("#secGameMenuMainMenu");
 } //function
 
 function gameEnd() {
@@ -70,7 +69,7 @@ function gameTurnEnd() {
   logIt("GAME", "All other Player's comedians have had turns");
   JSONconfig[0].turn += 1;
   logIt("GAME", "END TURN");
-  navShow("#secGameMenuMainManu");
+  navShow("#secGameMenuMainMenu");
 } //function
 
 function gameChooseExecuteComedianTurn(intComedian) { //check what action player can do
@@ -86,12 +85,12 @@ function gameChooseExecuteComedianTurn(intComedian) { //check what action player
       case 1: //GIG
         if (!JSONcomedian[intComedian].set.length > 0) boolActionChoiceOK = false;
         else {
-          intVenue = generateRandomNumber(0, JSONvenue.length-1);
+          intVenue = generateRandomNumber(0, JSONvenue.length-1); //-1 because index
           gigCreate(intComedian
-            ,JSONcomedian[intComedian].set[generateRandomNumber(0, JSONcomedian[intComedian].set.length-1)] //set
+            ,JSONcomedian[intComedian].set[generateRandomNumber(0, JSONcomedian[intComedian].set.length-1)] //set -1 because index
             ,intVenue //venue
-            ,generateRandomNumber(0, JSONaudience.length-1) //audience
-            ,generateRandomNumber(0, JSONgigCategory.length-1)
+            ,generateRandomNumber(0, JSONaudience.length-1) //audience -1 because index
+            ,generateRandomNumber(0, JSONgigCategory.length-1) //-1 because index
           ); //gigCreate
         } //if
       break;
@@ -108,10 +107,28 @@ function gameChooseExecuteComedianTurn(intComedian) { //check what action player
   logIt("INFO", JSONcomedian[intComedian].name + " performed the action " + JSONaction[intAction].name);
 } //function
 
-function gameSimulate(intValue) {
-  // adminGameInitChosen();
-  adminGameInitCreated();
-  for(let i=0;i<intValue;i++) {
-    gameTurnEnd();
-  } //for
+
+
+
+
+
+///////////
+// ADMIN //
+///////////
+
+function simulate() {
+  let intComedian=0,intComedians=0;
+  guiGameMenuStart();
+  guiGameMenuStartComedianChoose();
+  intComedians = generateRandomNumber(JSONconfig[0].JSONcomediansPerPlayerMin, JSONconfig[0].JSONcomediansPerPlayerMax);
+  do {
+    intComedian = generateRandomNumber(1, JSONcomedian.length-1); //-1 because index
+    comedianAdd(0, intComedian);
+    setCreate(intComedian, generateRandomNumber(0, JSONgenre.length-1), JSONmusicianNamePrefix[generateRandomNumber(0, JSONmusicianNamePrefix.length-1)] + " " + JSONmusicianNameSuffix[generateRandomNumber(0, JSONmusicianNameSuffix.length-1)] + " set");  //-1 because index
+    intComedians--;
+  } while(intComedians > 0) //do
+  gameStart();
+
+
+
 } //function

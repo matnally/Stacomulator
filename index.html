@@ -40,16 +40,8 @@
   <!-- START TEMPLATES -->
   <!--    COMEDIAN -->
   <template class="templateComedian">
+    <div id="divComedianComboBox" class="divComedianComboBox"></div>
     <div class="divTable">
-      <div class="divRow">
-        <div class="divCell">
-          <button onClick="comedianMove(-1);"> < Prev</button>
-        </div><!-- divCell -->
-        <div class="divCell textRight">
-          <div id="divComedianComboBox" class="divComedianComboBox"></div>
-          <button onClick="comedianMove(1);">Next > </button>
-        </div><!-- divCell -->
-      </div><!-- divRow -->
       <div class="divRow">
         <div class="divCell">
           <img class="imgComedianImage" src="_images/image.png" alt="Comedian Image">
@@ -57,16 +49,12 @@
         <div class="divCell">
           <div class="divTable">
             <div class="divRow">
-              <div class="divCell textRight"><p>Name</p></div><!-- divCell -->
+              <div class="divCell textRight"><label for="divComedianNameTemplate">Name</label></div><!-- divCell -->
               <div class="divCell"><div class="divComedianNameTemplate"></div></div><!-- divCell -->
             </div><!-- divRow -->
             <div class="divRow">
-              <div class="divCell textRight"><p></p></div><!-- divCell -->
+              <div class="divCell textRight"><label for="divComedianDescriptionTemplate">Desc</label></div><!-- divCell -->
               <div class="divCell"><div class="divComedianDescriptionTemplate"></div></div><!-- divCell -->
-            </div><!-- divRow -->
-            <div class="divRow">
-              <div class="divCell textRight"><p>Set</p></div><!-- divCell -->
-              <div class="divCell"><div class="divComedianSetTemplate"></div></div><!-- divCell -->
             </div><!-- divRow -->
           </div><!-- divTable -->
         </div><!-- divCell -->
@@ -75,80 +63,83 @@
   </template> <!-- templateComedian -->
   <!--    SET -->
   <template class="templateSet">
+    <div id="divSetComboBox" class="divSetComboBox"></div>
     <div class="divTable">
       <div class="divRow">
-        <div class="divCell">
-          <button onClick="guiPrevNextMove(-1);"> < Prev</button>
-        </div><!-- divCell -->
-        <div class="divCell textRight">
-          <!-- <div id="divComedianComboBox" class="divComedianComboBox"></div> -->
-          <button onClick="guiPrevNextMove(1);">Next > </button>
-        </div><!-- divCell -->
-      </div><!-- divRow -->
-      <div class="divRow">
-        <div class="divCell textRight"><p>Name</p></div><!-- divCell -->
+        <div class="divCell textRight"><label for="divSetNameTemplate">Name</label></div><!-- divCell -->
         <div class="divCell"><div class="divSetNameTemplate"></div></div><!-- divCell -->
       </div><!-- divRow -->
       <div class="divRow">
-        <div class="divCell textRight"><p></p></div><!-- divCell -->
+        <div class="divCell textRight"><label for="divSetDescriptionTemplate">Desc</label></div><!-- divCell -->
         <div class="divCell"><div class="divSetDescriptionTemplate"></div></div><!-- divCell -->
       </div><!-- divRow -->
       <div class="divRow">
-        <div class="divCell textRight"><p>Genre</p></div><!-- divCell -->
+        <div class="divCell textRight"><label for="divSetGenreTemplate">Genre</label></div><!-- divCell -->
         <div class="divCell"><div class="divSetGenreTemplate"></div></div><!-- divCell -->
       </div><!-- divRow -->
       <div class="divRow">
-        <div class="divCell textRight"><p>Turn Created</p></div><!-- divCell -->
+        <div class="divCell textRight"><label for="divSetTurnTemplate">Turn Created</label></div><!-- divCell -->
         <div class="divCell"><div class="divSetTurnTemplate"></div></div><!-- divCell -->
       </div><!-- divRow -->
     </div><!-- divTable -->
   </template> <!-- templateSet -->
   <!--    VENUE -->
   <template class="templateVenue">
+    <div id="divVenueComboBox" class="divVenueComboBox"></div>
     <div class="divTable">
       <div class="divRow">
-        <div class="divCell textRight"><p>Name</p></div><!-- divCell -->
+        <div class="divCell textRight"><label for="divVenueNameTemplate">Name</label></div><!-- divCell -->
         <div class="divCell"><div class="divVenueNameTemplate"></div></div><!-- divCell -->
       </div><!-- divRow -->
       <div class="divRow">
-        <div class="divCell textRight"><p></p></div><!-- divCell -->
+        <div class="divCell textRight"><label for="divVenueDescriptionTemplate">Desc</label></div><!-- divCell -->
         <div class="divCell"><div class="divVenueDescriptionTemplate"></div></div><!-- divCell -->
+      </div><!-- divRow -->
+      <div class="divRow">
+        <div class="divCell textRight"><label for="divVenueCategoryNameTemplate">Name</label></div><!-- divCell -->
+        <div class="divCell"><div class="divVenueCategoryNameTemplate"></div></div><!-- divCell -->
+      </div><!-- divRow -->
+      <div class="divRow">
+        <div class="divCell textRight"><label for="divVenueCategoryDescriptionTemplate">Desc</label></div><!-- divCell -->
+        <div class="divCell"><div class="divVenueCategoryDescriptionTemplate"></div></div><!-- divCell -->
+      </div><!-- divRow -->
+      <div class="divRow">
+        <div class="divCell textRight"><label for="divVenueCategoryCapacityTemplate">Capacity</label></div><!-- divCell -->
+        <div class="divCell"><div class="divVenueCategoryCapacityTemplate"></div></div><!-- divCell -->
       </div><!-- divRow -->
     </div><!-- divTable -->
   </template> <!-- templateVenue -->
   <!-- END TEMPLATES -->
 
   <!-- START GUI MAIN MENU -->
-
-  <section id="secGameMenuMainManu">
-    <br><button onClick="guiGameMenuMainMenuSet();">Write Set</button>
-    <br><button onClick="guiGameMenuMainMenuGig();">Gig</button>
-    <br><button onClick="guiGameMenuMainMenuPublicity();">Publicity</button>
-    <br><button onClick="guiGameMenuMainMenuTV();">TV work</button>
-    <br><button onClick="">Drink / Drugs</button>
-  </section><!-- secGameMenuMainManu -->
+  <section id="secGameMenuMainMenu">
+    <br><button onClick="guiDisplay(0);">Write Set</button>
+    <br><button onClick="guiDisplay(1);">Gig</button>
+    <br><button onClick="guiDisplay(2);">Publicity</button>
+    <br><button onClick="guiDisplay(3);">TV work</button>
+  </section><!-- secGameMenuMainMenu -->
 
   <section id="secGameMenuStartSettings">
     <p>Settings</p>
     <div class="divTable">
       <div class="divRow">
-        <div class="divCell textRight"><p>Comedians to create</p></div><!-- divCell -->
+        <div class="divCell textRight"><label for="inpComediansToCreate">Comedians to create</label></div><!-- divCell -->
         <div class="divCell"><input id="inpComediansToCreate" type="number" step="1" value="10"></div><!-- divCell -->
       </div><!-- divRow -->
       <div class="divRow">
-        <div class="divCell textRight"><p>Comedians Per Player Min</p></div><!-- divCell -->
+        <div class="divCell textRight"><label for="inpComediansPerPlayerMin">Comedians Per Player Min</label></div><!-- divCell -->
         <div class="divCell"><input id="inpComediansPerPlayerMin" type="number" step="1" value="2"></div><!-- divCell -->
       </div><!-- divRow -->
       <div class="divRow">
-        <div class="divCell textRight"><p>Comedians Per Player Max</p></div><!-- divCell -->
+        <div class="divCell textRight"><label for="inpComediansPerPlayerMax">Comedians Per Player Max</label></div><!-- divCell -->
         <div class="divCell"><input id="inpComediansPerPlayerMax" type="number" step="1" value="5"></div><!-- divCell -->
       </div><!-- divRow -->
       <div class="divRow">
-        <div class="divCell textRight"><p>Audience Per Venue Min</p></div><!-- divCell -->
+        <div class="divCell textRight"><label for="inpAudiencePerVenueMin">Audience Per Venue Min</label></div><!-- divCell -->
         <div class="divCell"><input id="inpAudiencePerVenueMin" type="number" step="1" value="1"></div><!-- divCell -->
       </div><!-- divRow -->
       <div class="divRow">
-        <div class="divCell textRight"><p>Audience Per Venue Max</p></div><!-- divCell -->
+        <div class="divCell textRight"><label for="inpAudiencePerVenueMax">Audience Per Venue Max</label></div><!-- divCell -->
         <div class="divCell"><input id="inpAudiencePerVenueMax" type="number" step="1" value="3"></div><!-- divCell -->
       </div><!-- divRow -->
     </div><!-- divTable -->
@@ -163,156 +154,97 @@
 
   <section id="secGameMenuStartComedianChoose">
     <p>Choose Comedian</p>
-    <div class="divTable">
-      <div class="divRow">
-        <div class="divCell">
-          <div id="divComedianChoose"></div>
-        </div><!-- divCell -->
-      </div><!-- divRow -->
-      <div class="divRow">
-        <div class="divCell">
-          <div class="divTable">
-            <div class="divRow">
-              <div class="divCell">
-                <!-- <div id="divComedianComboBox"></div> -->
-              </div><!-- divCell -->
-              <div class="divCell">
-                &nbsp;
-              </div><!-- divCell -->
-              <div class="divCell textVMiddle">
-                <button onClick="comedianAdd(0, parseInt(document.getElementById('selComedian').value));">Add Comedian</button>
-              </div><!-- divCell -->
-            </div><!-- divRow -->
-          </div><!-- divTable -->
-        </div><!-- divCell -->
-      </div><!-- divRow -->
-    </div><!-- divTable -->
-    <br>
+    <div id="divComedianChoose"></div>
+    <button onClick="comedianAdd(0, parseInt(document.getElementById('selComedianChoose').value));">Add Comedian</button>
+    <br><br>
     <p>Chosen Comedians</p>
-    <div class="divTable">
-      <div class="divRow">
-        <div class="divCell">
-          <div id="divComedianChosen"></div>
-        </div><!-- divCell -->
-      </div><!-- divRow -->
-    </div><!-- divTable -->
+    <div id="divComedianChosen"></div>
     <br>
     <button onClick="gameStart();">Start Game</button>
+    <button onClick="navShow('#secGameMenuStart');">< Back</button>
   </section><!-- secGameMenuStartComedianChoose -->
 
   <section id="secGameMenuStartComedianCreate">
     <p>Create Comedian</p>
     <div class="divTable">
       <div class="divRow">
-        <div class="divCell textRight"><p>Name</p></div><!-- divCell -->
-        <div class="divCell"><input id="inputComedianName" type="text" value="CustomComedianName"></div><!-- divCell -->
+        <div class="divCell textRight"><label for="inputComedianName">Name</label></div><!-- divCell -->
+        <div class="divCell"><input id="inputComedianName" type="text" placeholder="Custom Comedian Name"></div><!-- divCell -->
       </div><!-- divRow -->
       <div class="divRow">
-        <div class="divCell textRight"><p>Description</p></div><!-- divCell -->
-        <div class="divCell"><input id="inputComedianDescription" type="text" value="CustomComedianDescription"></div><!-- divCell -->
+        <div class="divCell textRight"><label for="inputComedianDescription">Desc</label></div><!-- divCell -->
+        <div class="divCell"><input id="inputComedianDescription" type="text" placeholder="Custom Comedian Description"></div><!-- divCell -->
       </div><!-- divRow -->
       <div class="divRow">
-        <div class="divCell textRight"><p>Image</p></div><!-- divCell -->
-        <div class="divCell"><input id="inputComedianImage" type="file" value="image.png"></div><!-- divCell -->
+        <div class="divCell textRight"><label for="inputComedianImage">Image</label></div><!-- divCell -->
+        <div class="divCell"><input id="inputComedianImage" type="file" placeholder="Choose an image"></div><!-- divCell -->
       </div><!-- divRow -->
     </div><!-- divTable -->
     <button onClick="comedianCreateCustom(document.getElementById('inputComedianName').value,document.getElementById('inputComedianDescription').value,document.getElementById('inputComedianImage').files[0].name);">Create Comedian</button>
     <br><br>
     <button onClick="gameStart();">Start Game</button>
+    <button onClick="navShow('#secGameMenuStart');">< Back</button>
   </section><!-- secGameMenuStartComedianCreate -->
 
   <section id="secPublicity">
     <p>Set or Comedian?</p>
     <button onClick="publicity();">Publicity</button>
+    <button onClick="navShow('#secGameMenuMainMenu');">< Back</button>
   </section><!-- secPublicity -->
 
   <section id="secTV">
     <p>TV work</p>
     <button onClick="tv();">TV Work</button>
+    <button onClick="navShow('#secGameMenuMainMenu');">< Back</button>
   </section><!-- secTV -->
 
   <section id="secSet">
     <p>WRITE SET</p>
     <p>Comedian details</p>
     <div id="divComedianDetailsTemplate"></div>
+    <p>Set details</p>
     <div class="divTable">
       <div class="divRow">
-        <div class="divCell textRight"><p>Comedian</p></div><!-- divCell -->
-        <div class="divCell"><div id="divSetComedian"></div></div><!-- divCell -->
+        <div class="divCell textRight"><label for="inputSetName">Set name</label></div><!-- divCell -->
+        <div class="divCell"><input id="inputSetName" type="text" placeholder="Enter Set name here"></div><!-- divCell -->
       </div><!-- divRow -->
       <div class="divRow">
-        <div class="divCell textRight"><p>Genre</p></div><!-- divCell -->
+        <div class="divCell textRight"><label for="divGenre">Genre</label></div><!-- divCell -->
         <div class="divCell"><div id="divGenre"></div></div><!-- divCell -->
       </div><!-- divRow -->
-      <div class="divRow">
-        <div class="divCell textRight"><p>Set Name</p></div><!-- divCell -->
-        <div class="divCell"><input id="inputSetName" type="text" value="SetName"></div></div><!-- divCell -->
-      </div><!-- divRow -->
-      <div class="divRow">
-        <div class="divCell textRight"><p></p></div><!-- divCell -->
-        <div class="divCell">
-          <button onClick="set();">Write Set</button>
-        </div><!-- divCell -->
-      </div><!-- divRow -->
     </div><!-- divTable -->
+    <button onClick="set();">Write Set</button>
+    <button onClick="navShow('#secGameMenuMainMenu');">< Back</button>
   </section><!-- secSet -->
 
   <section id="secGig">
     <p>GIG</p>
-    <p>Image</p>
+    <p>Comedian details</p>
     <div id="divSetComedianTemplate"></div>
     <p>Set details</p>
-
-
-
-
-
-
-
     <div id="divSetDetailsTemplate"></div>
-
-
-
-
-
-
-
-
-
     <p>Venue details</p>
     <div id="divVenueDetailsTemplate"></div>
-    <div class="divTable">
-      <div class="divRow">
-        <div class="divCell textRight"><p>Comedian</p></div><!-- divCell -->
-        <div class="divCell"><div id="divGigComedian"></div></div><!-- divCell -->
-      </div><!-- divRow -->
-      <div class="divRow">
-        <div class="divCell textRight"><p>Set</p></div><!-- divCell -->
-        <div class="divCell"><div id="divGigSetName"></div></div><!-- divCell -->
-      </div><!-- divRow -->
-      <div class="divRow">
-        <div class="divCell textRight"><p>Venue</p></div><!-- divCell -->
-        <div class="divCell"><div id="divGigVenue"></div></div><!-- divCell -->
-      </div><!-- divRow -->
-    </div><!-- divTable -->
+
+
+<p>Gig Type</p>
+<div id="divGigType"></div>
+<select id="">
+  <option value=0>Arts centre</option>
+</select>
+
     <br><button onClick="gig(2);">Perform Normal Gig</button>
     <br><button onClick="gig(1);">Perform Corporate Gig</button>
     <br><button onClick="gig(0);">Perform Charity Gig</button>
     <br><button onClick="gig(3);">Perform Warm Up Gig</button>
+    <br><button onClick="navShow('#secGameMenuMainMenu');">< Back</button>
   </section><!-- secGig -->
 
-  <br><br>
-  <button onClick="navShow('#secGameMenuMainManu');">< Back</button>
-  <br><br>
-
-  <hr>
   <!-- ADMIN -->
+  <br>
+  <hr>
   <div id="divAdmin">
     <h2>ADMIN</h2>
-    <p>START</p>
-    <button onClick="adminGameInitChosen();">Start game with random Comedians</button>
-    <button onClick="adminGameInitCreated();">Start game with created Comedians</button>
-    <button onClick="gameSimulate(50);">Start Created and 50 Turns</button>
     <!-- LOGGING LEVEL -->
     <p>LOGGING DISPLAY</p>
     <select id="selJSONlevel" onChange="JSONconfig[0].logging = this.value;"><!-- ADD VALUE TO logIt -->
@@ -347,6 +279,8 @@
     </select>
     <br>
     <p>TURN</p>
+    <button onClick="simulate();">ChooseComedianGame</button>
+    <br>
     <button onClick="gameTurnEnd();">End Turn</button>
   </div><!-- divAdmin -->
 
