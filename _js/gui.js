@@ -166,6 +166,8 @@ function guiDisplay(intAction) {
       updateElement("divComedianChoose", guiCreateHTMLComedianDetails(intComedian, JSONcomedian, -2));
       //SHOW
       navShow("#secGameMenuStartComedianChoose");
+      document.getElementById("selComedianChoose").focus();
+
     break;
     case 0:
       //WRITE SET

@@ -25,7 +25,7 @@ function setCreate(intComedian, intGenre, strName) {
   intSet = JSONset.length-1;  //-1 because index
   JSONcomedian[intComedian].set.push(intSet);
   comedianUpdateSelect(intComedian, 1); //0=GIG 1=SET
-  logIt("SET", JSONcomedian[intComedian].name + " wrote the set " + JSONset[intSet].name + " with " + JSONset[intSet].quality + "&amp; quality");
+  logIt("SET", JSONcomedian[intComedian].name + " wrote the set " + JSONset[intSet].name + " with " + JSONset[intSet].quality + "% quality"); //has to be "%" if output to console
 } //function
 
 // END OF JSON //

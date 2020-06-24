@@ -41,7 +41,7 @@ function gameSetConfig() {
   JSONconfig[0].JSONcomediansToCreate = document.getElementById("inpComediansToCreate").value;
   JSONconfig[0].JSONaudiencePerVenueMin = document.getElementById("inpAudiencePerVenueMin").value;
   JSONconfig[0].JSONaudiencePerVenueMax = document.getElementById("inpAudiencePerVenueMax").value;
-  logIt("GAME", "Config settings set");
+  logIt("GAME", "Config settings applied");
 } //function
 
 function gameStart() {
@@ -52,7 +52,7 @@ function gameStart() {
 } //function
 
 function gameEnd() {
-  logIt("GAME", "EMD OF THE GAME!");
+  logIt("GAME", "END OF THE GAME!");
 } //function
 
 
@@ -110,8 +110,6 @@ function gameChooseExecuteComedianTurn(intComedian) { //check what action player
 
 
 
-
-
 ///////////
 // ADMIN //
 ///////////
@@ -128,7 +126,4 @@ function simulate() {
     intComedians--;
   } while(intComedians > 0) //do
   gameStart();
-
-
-
 } //function
