@@ -7,46 +7,55 @@ var JSONvenue = [
     ,"description" : "desc"
     ,"image"       : "image.png"
     ,"category"    : 0 //JSONvenueCategory ID
+    ,"audience"    : []
   },{
     "name"         : "City hall"
     ,"description" : "desc"
     ,"image"       : "image.png"
     ,"category"    : 2 //JSONvenueCategory ID
+    ,"audience"    : []
   },{
     "name"         : "Comedy chain club"
     ,"description" : "desc"
     ,"image"       : "image.png"
     ,"category"    : 1 //JSONvenueCategory ID
+    ,"audience"    : []
   },{
     "name"         : "Independent comedy club"
     ,"description" : "desc"
     ,"image"       : "image.png"
     ,"category"    : 0 //JSONvenueCategory ID
+    ,"audience"    : []
   },{
     "name"         : "Opening act for a band"
     ,"description" : "desc"
     ,"image"       : "image.png"
     ,"category"    : 1 //JSONvenueCategory ID
+    ,"audience"    : []
   },{
     "name"         : "Pub function room"
     ,"description" : "desc"
     ,"image"       : "image.png"
     ,"category"    : 0 //JSONvenueCategory ID
+    ,"audience"    : []
   },{
     "name"         : "Student union"
     ,"description" : "desc"
     ,"image"       : "image.png"
     ,"category"    : 2 //JSONvenueCategory ID
+    ,"audience"    : []
   },{
     "name"         : "Working Men's Club"
     ,"description" : "desc"
     ,"image"       : "image.png"
     ,"category"    : 1 //JSONvenueCategory ID
+    ,"audience"    : []
   },{
     "name"         : "New Stadium"
     ,"description" : "desc"
     ,"image"       : "image.png"
     ,"category"    : 3 //JSONvenueCategory ID
+    ,"audience"    : []
   }
 ];
 
@@ -99,3 +108,28 @@ function venueCreateJSONaudience() {
 } //function
 
 // END OF JSON //
+
+
+
+
+
+
+
+
+
+
+function venueAudiencePossible(intVenue) {
+  let strTemp = "";
+  for (let a in JSONvenue[intVenue].audience) {
+    if (a > 0) strTemp += "<br>";
+    strTemp += JSONaudience[JSONvenue[intVenue].audience[a]].name;
+    //TODO: clean up
+    strTemp += "<br>";
+    for (let g in JSONaudience[JSONvenue[intVenue].audience[a]].genre) {
+      strTemp += " - ";
+      strTemp += JSONgenre[JSONaudience[JSONvenue[intVenue].audience[a]].genre[g]].name;
+      strTemp += "<br>";
+    } //for
+  } //for
+  return strTemp;
+} //function

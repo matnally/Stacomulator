@@ -20,11 +20,12 @@ function setCreate(intComedian, intGenre, strName) {
                 ,"description" : "Set " + JSONset.length + " description"
                 ,"genre"       : intGenre
                 ,"turn"        : JSONconfig[0].turn
-                ,"quality"     : setCalcQuality(intComedian, intGenre) // %
+                ,"quality"     : setCalcQuality(intComedian, intGenre)
+                ,"reputation"  : 0
   }); //push
   intSet = JSONset.length-1;  //-1 because index
   JSONcomedian[intComedian].set.push(intSet);
-  comedianUpdateSelect(intComedian, 1); //0=GIG 1=SET
+  updateStatsFromAction(intComedian, 1, intSet); //0=GIG 1=SET
   logIt("SET", JSONcomedian[intComedian].name + " wrote the set " + JSONset[intSet].name + " with " + JSONset[intSet].quality + "% quality"); //has to be "%" if output to console
 } //function
 
@@ -36,12 +37,15 @@ function setCreate(intComedian, intGenre, strName) {
 //////////////////////
 
 function setCalcQuality(intComedian, intGenre) {
-  let intQuality=0,intExperience=0;
-  intExperience = comedianCalcExperience(intComedian);
-  /***************** CALC ********************/
-  intQuality = calcPercentage(intExperience, JSONconfig[0].turn); //TODO: calc better!
-  if (JSONconfig[0].turn < 10) Math.round(intQuality = (intQuality/2)); //under 10 turns so offset it!
-  /*******************************************/
+  let intQuality=0
+  // let intQuality=0,intExperience=0;
+  // intExperience = comedianCalcExperience(intComedian);
+  // /***************** CALC ********************/
+  // intQuality = calcPercentage(intExperience, JSONconfig[0].turn); //TODO: calc better!
+  // if (JSONconfig[0].turn < 10) Math.round(intQuality = (intQuality/2)); //under 10 turns so offset it!
+  // /*******************************************/
+  // return intQuality;
+  intQuality = comedianCalcExperience(intComedian) + JSONcomedian[intComedian].reputation
   return intQuality;
 } //function
 

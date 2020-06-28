@@ -22,28 +22,6 @@ var JSONgigCategory = [
 // END OF JSON //
 
 
-function gigCreate(intComedian, intSet, intVenue, intAudience, intCategory) {
-  let intHecklers=0,intAudienceRapport=0,intGigOutcome=0;
-  intHecklers = gigCalcHecklers(intComedian, intSet, intVenue, intAudience, intCategory);
-  intAudienceRapport = gigCalcaudienceRapport(intComedian, intSet, intVenue, intAudience, intCategory);
-  intGigOutcome = gigCalcGigOutcome(intComedian, intSet, intVenue, intAudience, intCategory);
-  JSONgig.push({"comedian"         : intComedian
-                ,"set"             : intSet
-                ,"venue"           : intVenue
-                ,"audience"        : intAudience
-                ,"category"        : intCategory
-                ,"turn"            : JSONconfig[0].turn
-                ,"hecklers"        : intHecklers
-  }); //push
-  comedianUpdateSelect(intComedian, 0); //0=GIG 1=SET
-  logIt("GIG", JSONcomedian[intComedian].name
-    + " performed " + JSONset[JSONset.length-1].name  //-1 because index
-    + " at " + JSONvenue[intVenue].name
-    + " to " + JSONaudience[intAudience].name
-    + " it was " + JSONgigCategory[intCategory].name
-  ); //logIt
-} //function
-
 function gig(intCategory) {
   gameTurnStart();
   let intComedian=0,intSet=0,intVenue=0,intAudience=0;
@@ -51,8 +29,30 @@ function gig(intCategory) {
   intSet = document.getElementById("selSet").value;
   intVenue = document.getElementById("selVenue").value;
   intAudience = audienceChoose(intVenue);
-  gigCreate(intComedian, intSet, intVenue, intAudience, intCategory); //0=Charity,1=Corporate,2=Normal,3=Warm up
+  gigCreate(intComedian, intSet, intVenue, intAudience, intCategory); //intCategory: 0=Charity,1=Corporate,2=Normal,3=Warm up
   gameTurnEnd();
+} //function
+
+function gigCreate(intComedian, intSet, intVenue, intAudience, intCategory) {
+  let intHecklers=0,intAudienceRapport=0,intGigOutcome=0;
+  // intHecklers = gigCalcHecklers(intComedian, intSet, intVenue, intAudience, intCategory);
+  // intAudienceRapport = gigCalcaudienceRapport(intComedian, intSet, intVenue, intAudience, intCategory);
+  // intGigOutcome = gigCalcGigOutcome(intComedian, intSet, intVenue, intAudience, intCategory);
+  JSONgig.push({"comedian"         : intComedian
+                ,"set"             : intSet
+                ,"venue"           : intVenue
+                ,"audience"        : intAudience
+                ,"category"        : intCategory //intCategory: 0=Charity,1=Corporate,2=Normal,3=Warm up
+                ,"turn"            : JSONconfig[0].turn
+                // ,"hecklers"        : intHecklers
+  }); //push
+  updateStatsFromAction(intComedian, 0, intSet); //0=GIG 1=SET
+  logIt("GIG", JSONcomedian[intComedian].name
+    + " performed " + JSONset[JSONset.length-1].name  //-1 because index
+    + " at " + JSONvenue[intVenue].name
+    + " to " + JSONaudience[intAudience].name
+    + " it was " + JSONgigCategory[intCategory].name
+  ); //logIt
 } //function
 
 

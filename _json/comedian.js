@@ -1,5 +1,8 @@
 
 var JSONcomedian = [{
-  "name"    : ""
-  ,"set"    : []
+  "name"          : ""
+  ,"description"  : ""
+  ,"image"        : ""
+  ,"set"          : []
+  ,"reputation"   : 0
 }];

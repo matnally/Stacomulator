@@ -31,8 +31,18 @@
   <script src="_json/config.js"></script>
   <script src="_json/name.js"></script>
 
-  <!-- CHANCE -->
+  <!-- chance -->
   <script src="_js/chance.js/chance.js"></script>
+
+  <!-- jdenticon -->
+  <script src="_js/jdenticon.js/jdenticon-2.2.0.min.js" async></script>
+
+  <!-- nes.css -->
+  <!-- <link rel="stylesheet" href="_css/nes.css/nes.min.css"> -->
+
+  <!-- tabulator -->
+  <link rel="stylesheet" href="_js/tabulator/css/tabulator.min.css">
+  <script src="_js/tabulator/js/tabulator.min.js"></script>
 
 </head>
 <body>
@@ -44,7 +54,8 @@
     <div class="divTable">
       <div class="divRow">
         <div class="divCell">
-          <img class="imgComedianImage" src="_images/image.png" alt="Comedian Image">
+          <!-- <svg id="identicon" class="imgComedianImage"></svg> -->
+          <svg class="imgComedianImage"></svg>
         </div><!-- divCell -->
         <div class="divCell">
           <div class="divTable">
@@ -55,6 +66,14 @@
             <div class="divRow">
               <div class="divCell textRight"><label for="divComedianDescriptionTemplate">Desc</label></div><!-- divCell -->
               <div class="divCell"><div class="divComedianDescriptionTemplate"></div></div><!-- divCell -->
+            </div><!-- divRow -->
+            <div class="divRow">
+              <div class="divCell textRight"><label for="divComedianNoOfGigsTemplate">No of Gigs</label></div><!-- divCell -->
+              <div class="divCell"><div class="divComedianNoOfGigsTemplate"></div></div><!-- divCell -->
+            </div><!-- divRow -->
+            <div class="divRow">
+              <div class="divCell textRight"><label for="divComedianExperienceTemplate">Experience</label></div><!-- divCell -->
+              <div class="divCell"><div class="divComedianExperienceTemplate"></div></div><!-- divCell -->
             </div><!-- divRow -->
           </div><!-- divTable -->
         </div><!-- divCell -->
@@ -81,6 +100,10 @@
         <div class="divCell textRight"><label for="divSetTurnTemplate">Turn Created</label></div><!-- divCell -->
         <div class="divCell"><div class="divSetTurnTemplate"></div></div><!-- divCell -->
       </div><!-- divRow -->
+      <div class="divRow">
+        <div class="divCell textRight"><label for="divSetPerformedTemplate">Times Performed</label></div><!-- divCell -->
+        <div class="divCell"><div class="divSetPerformedTemplate"></div></div><!-- divCell -->
+      </div><!-- divRow -->
     </div><!-- divTable -->
   </template> <!-- templateSet -->
   <!--    VENUE -->
@@ -96,16 +119,20 @@
         <div class="divCell"><div class="divVenueDescriptionTemplate"></div></div><!-- divCell -->
       </div><!-- divRow -->
       <div class="divRow">
-        <div class="divCell textRight"><label for="divVenueCategoryNameTemplate">Name</label></div><!-- divCell -->
+        <div class="divCell textRight"><label for="divVenueCategoryNameTemplate">Category</label></div><!-- divCell -->
         <div class="divCell"><div class="divVenueCategoryNameTemplate"></div></div><!-- divCell -->
       </div><!-- divRow -->
       <div class="divRow">
-        <div class="divCell textRight"><label for="divVenueCategoryDescriptionTemplate">Desc</label></div><!-- divCell -->
+        <div class="divCell textRight"><label for="divVenueCategoryDescriptionTemplate">Category Desc</label></div><!-- divCell -->
         <div class="divCell"><div class="divVenueCategoryDescriptionTemplate"></div></div><!-- divCell -->
       </div><!-- divRow -->
       <div class="divRow">
         <div class="divCell textRight"><label for="divVenueCategoryCapacityTemplate">Capacity</label></div><!-- divCell -->
         <div class="divCell"><div class="divVenueCategoryCapacityTemplate"></div></div><!-- divCell -->
+      </div><!-- divRow -->
+      <div class="divRow">
+        <div class="divCell textRight"><label for="divVenueAudienceTemplate">Possible Audience</label></div><!-- divCell -->
+        <div class="divCell"><div class="divVenueAudienceTemplate"></div></div><!-- divCell -->
       </div><!-- divRow -->
     </div><!-- divTable -->
   </template> <!-- templateVenue -->
@@ -113,10 +140,11 @@
 
   <!-- START GUI MAIN MENU -->
   <section id="secGameMenuMainMenu">
-    <br><button onClick="guiDisplay(0);">Write Set</button>
-    <br><button onClick="guiDisplay(1);">Gig</button>
-    <br><button onClick="guiDisplay(2);">Publicity</button>
-    <br><button onClick="guiDisplay(3);">TV work</button>
+    <p>Main Menu</p>
+    <button onClick="guiDisplayActionFromMainMenu(0);">Write Set</button>
+    <br><button onClick="guiDisplayActionFromMainMenu(1);">Gig</button>
+    <br><button onClick="guiDisplayActionFromMainMenu(2);">Publicity</button>
+    <br><button onClick="guiDisplayActionFromMainMenu(3);">TV work</button>
   </section><!-- secGameMenuMainMenu -->
 
   <section id="secGameMenuStartSettings">
@@ -144,7 +172,7 @@
       </div><!-- divRow -->
       <!-- TODO: More options -->
       <div class="divRow">
-        <div class="divCell textRight"><label for="inpGigReputation">Gig Reputation (Reputation per gig)</label></div><!-- divCell -->
+        <div class="divCell textRight"><label for="inpGigReputation">Gig Reputation (Reputation per gig) TODO</label></div><!-- divCell -->
         <div class="divCell"><input id="intGigReputation" type="number" step="1" value="10"></div><!-- divCell -->
       </div><!-- divRow -->
     </div><!-- divTable -->
@@ -153,20 +181,38 @@
 
   <section id="secGameMenuStart">
     <p>Game Start</p>
-    <button onClick="guiGameMenuStartComedianChoose();">Choose Comedian</button>
-    <button onClick="guiGameMenuStartcomedianCreateCustom();">Create Comedian</button>
+    <div class="divTable">
+      <div class="divRow">
+        <div class="divCell">
+          <button onClick="guiGameMenuStartComedianChoose();">Choose Comedian</button>
+          <button onClick="guiGameMenuStartcomedianCreateCustom();">Create Comedian</button>
+        </div><!-- divCell -->
+      </div><!-- divRow -->
+    </div><!-- divTable -->
   </section><!-- secGameMenuStart -->
 
   <section id="secGameMenuStartComedianChoose">
-    <p>Choose Comedian</p>
-    <div id="divComedianChoose"></div>
-    <button onClick="comedianAdd(0, parseInt(document.getElementById('selComedianChoose').value));">Add Comedian</button>
+    <div class="divTable">
+      <div class="divRow">
+        <div class="divCell">
+          <p>Choose Comedian</p>
+          <div id="divComedianChoose"></div>
+          <button onClick="comedianAdd(0, parseInt(document.getElementById('selComedianChoose').value));">Add Comedian</button>
+        </div><!-- divCell -->
+      </div><!-- divRow -->
+    </div><!-- divTable -->
     <br><br>
-    <p>Chosen Comedians</p>
-    <div id="divComedianChosen"></div>
-    <br>
-    <button onClick="gameStart();">Start Game</button>
-    <button onClick="navShow('#secGameMenuStart');">< Back</button>
+    <div class="divTable">
+      <div class="divRow">
+        <div class="divCell">
+          <p>Chosen Comedians</p>
+          <div id="divComedianChosen"></div>
+          <br>
+          <button onClick="gameStart();">Start Game</button>
+          <button onClick="navShow('#secGameMenuStart');">< Back</button>
+        </div><!-- divCell -->
+      </div><!-- divRow -->
+    </div><!-- divTable -->
   </section><!-- secGameMenuStartComedianChoose -->
 
   <section id="secGameMenuStartComedianCreate">
@@ -180,12 +226,13 @@
         <div class="divCell textRight"><label for="inputComedianDescription">Desc</label></div><!-- divCell -->
         <div class="divCell"><input id="inputComedianDescription" type="text" placeholder="Custom Comedian Description"></div><!-- divCell -->
       </div><!-- divRow -->
-      <div class="divRow">
-        <div class="divCell textRight"><label for="inputComedianImage">Image</label></div><!-- divCell -->
-        <div class="divCell"><input id="inputComedianImage" type="file" placeholder="Choose an image"></div><!-- divCell -->
-      </div><!-- divRow -->
+      <!-- <div class="divRow">
+        <div class="divCell textRight"><label for="inputComedianImage">Image</label></div>
+        <div class="divCell"><input id="inputComedianImage" type="file" placeholder="Choose an image"></div>
+      </div> -->
     </div><!-- divTable -->
-    <button onClick="comedianCreateCustom(document.getElementById('inputComedianName').value,document.getElementById('inputComedianDescription').value,document.getElementById('inputComedianImage').files[0].name);">Create Comedian</button>
+    <!-- <button onClick="comedianCreateCustom(document.getElementById('inputComedianName').value,document.getElementById('inputComedianDescription').value,document.getElementById('inputComedianImage').files[0].name);">Create Comedian</button> -->
+    <button onClick="comedianCreateCustom(document.getElementById('inputComedianName').value,document.getElementById('inputComedianDescription').value);">Create Comedian</button>
     <br><br>
     <button onClick="gameStart();">Start Game</button>
     <button onClick="navShow('#secGameMenuStart');">< Back</button>
@@ -230,18 +277,10 @@
     <div id="divSetDetailsTemplate"></div>
     <p>Venue details</p>
     <div id="divVenueDetailsTemplate"></div>
-
-
-<p>Gig Type</p>
-<div id="divGigType"></div>
-<select id="">
-  <option value=0>Arts centre</option>
-</select>
-
-    <br><button onClick="gig(2);">Perform Normal Gig</button>
-    <br><button onClick="gig(1);">Perform Corporate Gig</button>
-    <br><button onClick="gig(0);">Perform Charity Gig</button>
-    <br><button onClick="gig(3);">Perform Warm Up Gig</button>
+    <button onClick="gig(2);">Perform Normal Gig</button>
+    &nbsp;<button onClick="gig(1);">Perform Corporate Gig</button>
+    &nbsp;<button onClick="gig(0);">Perform Charity Gig</button>
+    &nbsp;<button onClick="gig(3);">Perform Warm Up Gig</button>
     <br><button onClick="navShow('#secGameMenuMainMenu');">< Back</button>
   </section><!-- secGig -->
 
@@ -271,6 +310,11 @@
     </select>
     <br>
     <!-- LOGGING JSON -->
+    <p>TURN</p>
+    <button onClick="simulate(50);">Simulate 50 Turns</button>
+    <br>
+    <button onClick="gameTurnEnd();">End Turn</button>
+    <br>
     <p>JSON</p>
     <select id="selJSON" onChange="displayJSON(this.value);">
       <option value="JSONaudience">JSONaudience</option>
@@ -283,11 +327,9 @@
       <option value="JSONvenue">JSONvenue</option>
     </select>
     <br>
-    <p>TURN</p>
-    <button onClick="simulate();">ChooseComedianGame</button>
-    <br>
-    <button onClick="gameTurnEnd();">End Turn</button>
+    <div id="example-table"></div>
   </div><!-- divAdmin -->
+
 
   <script>
     $(document).ready(function() {

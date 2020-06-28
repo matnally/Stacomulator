@@ -23,6 +23,13 @@ button {
 }
 /* END MAIN ELEMENTS */
 
+section {
+  margin: auto; width: 50%; /* center */
+  border: 1px RED solid;
+}
+
+
+
 /* START TEXT */
 .textRight {
   text-align: right;
@@ -39,8 +46,16 @@ button {
 .divRow {
   display: table-row;
 }
-.divCell {  
+.divCell {
   display: table-cell;
   vertical-align: top;
 }
 /* END TABLES */
+
+
+
+
+.imgComedianImage {
+  width: 64px;
+  height: 64px;
+}

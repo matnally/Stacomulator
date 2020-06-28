@@ -29,6 +29,7 @@ function inArray(JSONtoUse, intValue) {
 // LOGGING
 function displayJSON(strJSON) { //ADMIN
   console.log(JSON.stringify(window[strJSON], null, 2));
+  tabulatorUpdateTable(strJSON);
 } //function
 function logIt(strType, strLog) {
   let strText = "";
